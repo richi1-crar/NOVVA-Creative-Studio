@@ -1,15 +1,12 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f7f7f4">
 
-    <title>El estudio — NOVVA Creative Studio</title>
-    <meta name="description" content="Conoce NOVVA, un estudio creativo enfocado en identidad de marca, marketing digital y diseño.">
-
-    <link rel="icon" href="assets/logo-novva.jpeg">
+    <title>Hablemos | NOVVA Creative Studio</title>
+    <meta name="description" content="Cuéntanos sobre tu proyecto. En NOVVA Creative Studio creamos soluciones de marketing digital, branding y diseño web.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,12 +15,11 @@
     <style>
         :root {
             --fondo: #f7f7f4;
-            --negro: #151515;
-            --gris: #777771;
-            --verde: #c6f36a;
-            --blanco: #fff;
-            --borde: #e5e5dd;
-            --ancho: 1200px;
+            --negro: #171717;
+            --azul: #3457f2;
+            --gris: #777873;
+            --borde: #deded8;
+            --blanco: #ffffff;
         }
 
         * {
@@ -34,14 +30,13 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 100px;
         }
 
         body {
             background: var(--fondo);
             color: var(--negro);
             font-family: "DM Sans", sans-serif;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
         a {
@@ -49,862 +44,378 @@
             text-decoration: none;
         }
 
-        img {
-            display: block;
-            width: 100%;
-        }
-
-        button {
+        button, input, select, textarea {
             font: inherit;
         }
 
-        .container {
-            width: min(var(--ancho), calc(100% - 48px));
-            margin: 0 auto;
+        .contenedor {
+            width: min(1160px, 90%);
+            margin: auto;
         }
 
-        .eyebrow {
-            display: inline-flex;
+        /* NAVEGACIÓN */
+
+        .navegacion {
+            min-height: 88px;
+            display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+            gap: 25px;
+            border-bottom: 1px solid var(--borde);
+        }
+
+        .logo img {
+            display: block;
+            width: 145px;
+            max-height: 55px;
+            object-fit: contain;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .menu a {
+            font-size: 13px;
+            transition: color .2s;
+        }
+
+        .menu a:hover,
+        .menu .activo {
+            color: var(--azul);
+        }
+
+        .menu .boton-menu {
+            border: 1px solid var(--negro);
+            border-radius: 30px;
+            padding: 11px 18px;
+        }
+
+        .menu .boton-menu:hover {
+            color: white;
+            background: var(--negro);
+        }
+
+        /* PRESENTACIÓN */
+
+        .presentacion {
+            padding: 100px 0 65px;
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 60px;
+            align-items: end;
+        }
+
+        .etiqueta {
+            color: var(--azul);
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .eyebrow::before {
-            content: "";
-            width: 8px;
-            height: 8px;
-            background: #8db43b;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .section {
-            padding: 100px 0;
-        }
-
-        .section-title {
+        h1, h2, h3 {
             font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(37px, 5vw, 64px);
-            line-height: 1.05;
-            letter-spacing: -2.8px;
-        }
-
-        .section-title i,
-        .hero-title i {
-            font-weight: 500;
-            font-style: normal;
-        }
-
-        .muted {
-            color: var(--gris);
-            font-size: 15px;
-            line-height: 1.9;
-        }
-
-        .button {
-            min-height: 49px;
-            padding: 0 22px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            font-size: 12px;
-            font-weight: 700;
-            border: 1px solid var(--negro);
-            transition: .25s ease;
-        }
-
-        .button-dark {
-            background: var(--negro);
-            color: white;
-        }
-
-        .button-dark:hover {
-            background: #373737;
-            transform: translateY(-3px);
-        }
-
-        .button-light:hover {
-            background: var(--verde);
-            border-color: var(--verde);
-        }
-
-        /* HEADER */
-
-        .header {
-            height: 82px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(247, 247, 244, .95);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(0, 0, 0, .07);
-        }
-
-        .header-inner {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-shrink: 0;
-        }
-
-        .brand img {
-            width: 44px;
-            height: 44px;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .brand-name {
-            font-family: "Space Grotesk", sans-serif;
-            font-weight: 700;
-            font-size: 28px;
+            line-height: 1.08;
             letter-spacing: -1.5px;
         }
 
-        .brand-name span {
-            color: #80a936;
+        h1 {
+            font-size: clamp(48px, 7vw, 88px);
+            margin: 24px 0;
         }
 
-        .navigation {
-            display: flex;
-            align-items: center;
-            gap: 28px;
+        h1 span {
+            color: var(--azul);
         }
 
-        .navigation a {
-            font-size: 12px;
-            font-weight: 600;
-            color: #555;
-            transition: .2s;
+        .presentacion p {
+            max-width: 430px;
+            color: var(--gris);
+            font-size: 15px;
         }
 
-        .navigation a:hover,
-        .navigation a.current {
-            color: #72992b;
-        }
-
-        .navigation .contact-link {
-            padding: 13px 18px;
-            background: var(--verde);
-            color: var(--negro);
-            border-radius: 40px;
-        }
-
-        .navigation .contact-link:hover {
-            background: #b5e452;
-        }
-
-        .menu-button {
-            display: none;
-            background: transparent;
-            border: 1px solid var(--borde);
-            border-radius: 50px;
-            padding: 11px 15px;
-            cursor: pointer;
-        }
-
-        /* HERO */
-
-        .hero {
-            padding: 85px 0 60px;
-            position: relative;
-        }
-
-        .hero-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 35px;
-        }
-
-        .hero-title {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(52px, 8vw, 98px);
-            line-height: .98;
-            letter-spacing: -6px;
-            margin-top: 28px;
-        }
-
-        .hero-title .highlight {
-            position: relative;
-            display: inline-block;
-            z-index: 1;
-        }
-
-        .hero-title .highlight::after {
-            content: "";
-            position: absolute;
-            height: 23px;
-            background: var(--verde);
-            bottom: 8px;
-            left: 0;
-            right: 0;
-            z-index: -1;
-            transform: rotate(-1.5deg);
-        }
-
-        .hero-description {
-            max-width: 340px;
-            padding-bottom: 8px;
-        }
-
-        .hero-description p {
+        .nota {
+            border-left: 2px solid var(--azul);
+            padding: 10px 0 10px 20px;
             color: var(--gris);
             font-size: 14px;
-            line-height: 1.9;
-            margin-bottom: 22px;
         }
 
-        .hero-image {
-            margin-top: 55px;
-            height: clamp(320px, 48vw, 540px);
-            border-radius: 24px;
-            overflow: hidden;
-            position: relative;
-            background: #ddd;
+        .nota strong {
+            display: block;
+            color: var(--negro);
+            margin-bottom: 8px;
         }
 
-        .hero-image img {
-            height: 100%;
-            object-fit: cover;
-            transition: transform .8s;
+        /* FORMULARIO */
+
+        .zona-contacto {
+            padding: 35px 0 110px;
         }
 
-        .hero-image:hover img {
-            transform: scale(1.035);
-        }
-
-        .hero-image::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                0deg,
-                rgba(0, 0, 0, .65),
-                transparent 65%
-            );
-            pointer-events: none;
-        }
-
-        .image-caption {
-            position: absolute;
-            z-index: 2;
-            bottom: 27px;
-            left: 30px;
-            right: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 20px;
-            color: white;
-        }
-
-        .image-caption h2 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(24px, 4vw, 43px);
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        .image-caption span {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-align: right;
-        }
-
-        /* MINI BARRA */
-
-        .intro-strip {
-            border-bottom: 1px solid var(--borde);
-            border-top: 1px solid var(--borde);
-            padding: 23px 0;
-        }
-
-        .strip-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-
-        .strip-inner span {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .strip-inner .strip-label {
-            color: var(--gris);
-            font-family: "DM Sans", sans-serif;
-            font-size: 10px;
-            letter-spacing: 1.5px;
-        }
-
-        /* HISTORIA DEL ESTUDIO */
-
-        .about-grid {
+        .formulario-grid {
             display: grid;
-            grid-template-columns: .9fr 1.1fr;
-            gap: 85px;
-            align-items: center;
+            grid-template-columns: .75fr 1.25fr;
+            gap: 70px;
+            align-items: start;
         }
 
-        .about-visual {
-            position: relative;
-            min-width: 0;
+        .informacion h2 {
+            font-size: 38px;
+            margin: 15px 0 20px;
         }
 
-        .about-photo {
-            height: 490px;
-            border-radius: 20px;
-            overflow: hidden;
-            background: #e4e1d9;
+        .informacion > p {
+            font-size: 14px;
+            color: var(--gris);
+            max-width: 330px;
         }
 
-        .about-photo img {
-            height: 100%;
-            object-fit: cover;
+        .dato-contacto {
+            margin-top: 38px;
+            padding-top: 20px;
+            border-top: 1px solid var(--borde);
         }
 
-        .photo-sticker {
-            position: absolute;
-            right: -25px;
-            bottom: 30px;
-            width: 125px;
-            height: 125px;
-            border-radius: 50%;
-            background: var(--verde);
+        .dato-contacto small {
+            display: block;
+            color: var(--gris);
+            margin-bottom: 5px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dato-contacto a {
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .formulario {
+            background: var(--blanco);
+            border: 1px solid var(--borde);
+            padding: clamp(24px, 4vw, 45px);
+            border-radius: 5px;
+        }
+
+        .formulario h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .descripcion-form {
+            color: var(--gris);
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .campos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 23px 18px;
+        }
+
+        .campo {
             display: flex;
             flex-direction: column;
+            gap: 8px;
+        }
+
+        .campo.completo {
+            grid-column: 1 / -1;
+        }
+
+        .campo label {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .campo input,
+        .campo select,
+        .campo textarea {
+            width: 100%;
+            background: var(--fondo);
+            border: 1px solid var(--borde);
+            padding: 14px;
+            border-radius: 3px;
+            color: var(--negro);
+            outline: none;
+            font-size: 13px;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .campo input:focus,
+        .campo select:focus,
+        .campo textarea:focus {
+            border-color: var(--azul);
+            box-shadow: 0 0 0 3px #3457f21c;
+        }
+
+        .campo textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .campo input::placeholder,
+        .campo textarea::placeholder {
+            color: #a0a09a;
+        }
+
+        .privacidad {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 25px 0;
+            font-size: 11px;
+            color: var(--gris);
+        }
+
+        .privacidad input {
+            margin-top: 4px;
+            accent-color: var(--azul);
+        }
+
+        .privacidad a {
+            color: var(--azul);
+            text-decoration: underline;
+        }
+
+        .boton-enviar {
+            width: 100%;
+            border: 0;
+            background: var(--azul);
+            color: white;
+            padding: 17px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            transform: rotate(8deg);
+            gap: 12px;
+            transition: background .2s, transform .2s;
         }
 
-        .photo-sticker strong {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 24px;
+        .boton-enviar:hover {
+            background: #2442d0;
+            transform: translateY(-2px);
         }
 
-        .photo-sticker span {
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1px;
+        .boton-enviar:disabled {
+            opacity: .6;
+            cursor: wait;
         }
 
-        .about-copy .section-title {
-            margin: 20px 0 25px;
-        }
-
-        .about-copy p {
-            color: var(--gris);
-            font-size: 14px;
-            line-height: 1.95;
-            margin-bottom: 17px;
-        }
-
-        .about-copy .button {
-            margin-top: 12px;
-        }
-
-        /* PRINCIPIOS */
-
-        .values {
-            background: #171717;
-            color: white;
-        }
-
-        .values-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 35px;
-            margin-bottom: 48px;
-        }
-
-        .values-header .section-title {
-            margin-top: 20px;
-            max-width: 650px;
-        }
-
-        .values-header .muted {
-            color: #aaa;
-            max-width: 300px;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-
-        .value-card {
-            padding: 28px;
-            min-height: 255px;
-            border: 1px solid #3a3a3a;
-            border-radius: 18px;
-            background: #202020;
-            transition: .25s;
-        }
-
-        .value-card:hover {
-            background: #282828;
-            transform: translateY(-5px);
-        }
-
-        .value-number {
-            color: var(--verde);
-            font-size: 12px;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-
-        .value-icon {
-            margin-top: 35px;
-            margin-bottom: 18px;
-            font-size: 25px;
-            color: var(--verde);
-        }
-
-        .value-card h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 21px;
-            margin-bottom: 12px;
-        }
-
-        .value-card p {
-            color: #aaa;
+        .estado {
+            display: none;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 3px;
             font-size: 13px;
-            line-height: 1.8;
         }
 
-        /* MANERA DE TRABAJAR */
-
-        .process-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 30px;
-        }
-
-        .process-heading .muted {
-            max-width: 320px;
-        }
-
-        .process-list {
-            margin-top: 50px;
-            border-top: 1px solid var(--borde);
-        }
-
-        .process-row {
-            display: grid;
-            grid-template-columns: 100px 1fr 1.1fr 35px;
-            align-items: center;
-            gap: 25px;
-            padding: 26px 0;
-            border-bottom: 1px solid var(--borde);
-            transition: padding .25s;
-        }
-
-        .process-row:hover {
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-
-        .process-row .number {
-            color: #72992b;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .process-row h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 23px;
-        }
-
-        .process-row p {
-            color: var(--gris);
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        .process-row .arrow {
-            font-size: 22px;
-            text-align: right;
-        }
-
-        /* CTA FINAL */
-
-        .last-word {
-            padding: 25px 0 95px;
-        }
-
-        .last-box {
-            background: var(--verde);
-            padding: clamp(35px, 7vw, 80px);
-            border-radius: 25px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 35px;
-        }
-
-        .last-box h2 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(42px, 6vw, 75px);
-            letter-spacing: -4px;
-            line-height: .99;
-            margin-top: 22px;
-        }
-
-        .last-box p {
-            font-size: 14px;
-            line-height: 1.8;
-            max-width: 470px;
-            margin-top: 20px;
-        }
-
-        .last-box .button {
-            flex-shrink: 0;
-        }
-
-        /* FOOTER */
-
-        .footer {
-            background: #151515;
-            color: white;
-            padding: 50px 0 24px;
-        }
-
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-            padding-bottom: 40px;
-        }
-
-        .footer-brand {
-            max-width: 340px;
-        }
-
-        .footer-logo {
-            display: inline-block;
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 34px;
-            font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 14px;
-        }
-
-        .footer-logo span {
-            color: var(--verde);
-        }
-
-        .footer-brand p {
-            color: #aaa;
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: clamp(25px, 5vw, 70px);
-        }
-
-        .footer-column h4 {
-            font-size: 12px;
-            margin-bottom: 18px;
-        }
-
-        .footer-column a {
+        .estado.visible {
             display: block;
-            color: #aaa;
-            font-size: 12px;
-            margin-bottom: 13px;
-            transition: color .2s;
         }
 
-        .footer-column a:hover {
-            color: var(--verde);
+        .estado.error {
+            background: #fff0f0;
+            color: #a51f1f;
         }
 
-        .footer-bottom {
-            padding-top: 20px;
-            border-top: 1px solid #353535;
+        /* PIE DE PÁGINA */
+
+        footer {
+            border-top: 1px solid var(--borde);
+            padding: 28px 0;
+        }
+
+        .pie {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             gap: 20px;
-            color: #999;
-            font-size: 11px;
+            font-size: 12px;
+            color: var(--gris);
         }
 
-        .footer-bottom span:last-child {
-            color: var(--verde);
+        .pie strong {
+            color: var(--negro);
+            font-family: "Space Grotesk", sans-serif;
         }
 
-        /* ANIMACIÓN */
-
-        .reveal {
-            animation: rise .75s ease both;
+        .redes {
+            display: flex;
+            gap: 20px;
         }
 
-        @keyframes rise {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .redes a:hover {
+            color: var(--azul);
         }
 
-        /* TABLET */
+        /* MÓVILES */
 
-        @media (max-width: 900px) {
-            .navigation {
-                gap: 15px;
+        @media (max-width: 760px) {
+            .navegacion {
+                min-height: 75px;
+                flex-wrap: wrap;
+                padding: 15px 0;
             }
 
-            .navigation a {
-                font-size: 11px;
+            .logo img {
+                width: 115px;
             }
 
-            .hero-top {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .hero-description {
-                max-width: 520px;
-            }
-
-            .about-grid {
-                gap: 45px;
-            }
-
-            .about-photo {
-                height: 420px;
-            }
-
-            .values-header {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .last-box {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-        }
-
-        /* CELULAR */
-
-        @media (max-width: 650px) {
-            .container {
-                width: calc(100% - 32px);
-            }
-
-            .header {
-                height: 72px;
-            }
-
-            .brand img {
-                width: 39px;
-                height: 39px;
-            }
-
-            .brand-name {
-                font-size: 25px;
-            }
-
-            .menu-button {
-                display: block;
-            }
-
-            .navigation {
-                display: none;
-                position: absolute;
-                top: 71px;
-                left: 0;
-                right: 0;
-                padding: 10px 20px 22px;
-                background: var(--fondo);
-                border-bottom: 1px solid var(--borde);
-                align-items: stretch;
-                flex-direction: column;
+            .menu {
+                width: 100%;
                 gap: 0;
+                justify-content: space-between;
+                flex-wrap: wrap;
             }
 
-            .navigation.open {
-                display: flex;
+            .menu a {
+                font-size: 11px;
+                padding: 7px 0;
             }
 
-            .navigation a {
-                padding: 15px 5px;
-                border-bottom: 1px solid var(--borde);
-                font-size: 13px;
+            .menu .boton-menu {
+                padding: 7px 10px;
             }
 
-            .navigation .contact-link {
-                margin-top: 12px;
-                text-align: center;
-                border: 0;
-            }
-
-            .hero {
-                padding: 55px 0 40px;
-            }
-
-            .hero-title {
-                font-size: clamp(46px, 12vw, 65px);
-                letter-spacing: -3.5px;
-            }
-
-            .hero-title .highlight::after {
-                height: 14px;
-                bottom: 5px;
-            }
-
-            .hero-image {
-                height: 390px;
-                margin-top: 35px;
-                border-radius: 18px;
-            }
-
-            .image-caption {
-                left: 20px;
-                right: 20px;
-                bottom: 20px;
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .image-caption span {
-                text-align: left;
-            }
-
-            .strip-inner {
-                justify-content: flex-start;
-                gap: 18px 25px;
-            }
-
-            .section {
-                padding: 70px 0;
-            }
-
-            .section-title {
-                font-size: 42px;
-                letter-spacing: -1.8px;
-            }
-
-            .about-grid {
+            .presentacion {
+                padding: 65px 0 40px;
                 grid-template-columns: 1fr;
-                gap: 42px;
+                gap: 25px;
             }
 
-            .about-photo {
-                height: 390px;
+            h1 {
+                font-size: clamp(46px, 12vw, 68px);
             }
 
-            .photo-sticker {
-                width: 100px;
-                height: 100px;
-                right: -5px;
-                bottom: 18px;
-            }
-
-            .photo-sticker strong {
-                font-size: 20px;
-            }
-
-            .values-grid {
+            .formulario-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
-            .value-card {
-                min-height: auto;
-            }
-
-            .value-icon {
-                margin-top: 25px;
-            }
-
-            .process-heading {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .process-row {
-                grid-template-columns: 48px 1fr 25px;
-                gap: 12px;
-                padding: 22px 0;
-            }
-
-            .process-row h3 {
-                font-size: 19px;
-            }
-
-            .process-row p {
-                grid-column: 2 / 3;
-            }
-
-            .process-row .arrow {
-                grid-column: 3;
-                grid-row: 1;
-            }
-
-            .last-word {
+            .zona-contacto {
                 padding-bottom: 65px;
             }
 
-            .last-box {
-                border-radius: 20px;
+            .campos {
+                grid-template-columns: 1fr;
             }
 
-            .last-box h2 {
-                font-size: 48px;
-                letter-spacing: -2px;
+            .campo.completo {
+                grid-column: auto;
             }
 
-            .footer-top {
+            .pie {
                 flex-direction: column;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                gap: 30px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: .01ms !important;
-                transition-duration: .01ms !important;
-                scroll-behavior: auto !important;
+                align-items: flex-start;
             }
         }
     </style>
@@ -912,369 +423,215 @@
 
 <body>
 
-    <!-- NAVEGACIÓN -->
-    <header class="header">
-        <div class="container header-inner">
-
-            <a class="brand" href="index.html" aria-label="NOVVA inicio">
-                <img src="assets/logo-novva.jpeg" alt="Logo NOVVA"
-                     onerror="this.style.display='none'">
-                <span class="brand-name">NOVVA<span>.</span></span>
+    <header class="contenedor">
+        <nav class="navegacion">
+            <a href="index.html" class="logo" aria-label="NOVVA inicio">
+                <img src="assets/logo-novva.jpeg" alt="NOVVA Creative Studio">
             </a>
 
-            <button class="menu-button" id="menuButton"
-                    aria-label="Abrir navegación"
-                    aria-expanded="false">
-                Menú <b>+</b>
-            </button>
-
-            <nav class="navigation" id="navigation">
+            <div class="menu">
                 <a href="index.html">Inicio</a>
-                <a class="current" href="quienes-somos.html">El estudio</a>
+                <a href="quienes-somos.html">El estudio</a>
                 <a href="servicios.html">Qué hacemos</a>
                 <a href="referencias.html">Proyectos</a>
-                <a class="contact-link" href="contacto.html">Hablemos ↗</a>
-            </nav>
-
-        </div>
+                <a href="contacto.html" class="boton-menu activo">Hablemos ↗</a>
+            </div>
+        </nav>
     </header>
 
-
     <main>
+        <section class="presentacion contenedor">
+            <div>
+                <span class="etiqueta">Hablemos de ideas</span>
+                <h1>Las buenas ideas<br>comienzan con<br><span>una conversación.</span></h1>
+                <p>
+                    Cuéntanos sobre tu marca, tus objetivos y lo que quieres
+                    construir. En NOVVA podemos ayudarte a darle forma.
+                </p>
+            </div>
 
-        <!-- PORTADA -->
-        <section class="hero">
-            <div class="container">
+            <div class="nota">
+                <strong>¿Tienes un proyecto en mente?</strong>
+                Completa el formulario y cuéntanos qué necesitas.
+                Queremos conocer tu idea y explorar nuevas posibilidades contigo.
+            </div>
+        </section>
 
-                <div class="hero-top reveal">
-                    <div>
-                        <span class="eyebrow">El estudio / 01</span>
+        <section class="zona-contacto contenedor">
+            <div class="formulario-grid">
 
-                        <h1 class="hero-title">
-                            Primero<br>
-                            escuchamos.<br>
-                            Después <span class="highlight">creamos.</span>
-                        </h1>
-                    </div>
+                <aside class="informacion">
+                    <span class="etiqueta">Contacto directo</span>
+                    <h2>Conectemos.</h2>
+                    <p>
+                        Cada proyecto comienza entendiendo a las personas
+                        que hay detrás de una marca. Cuéntanos el tuyo.
+                    </p>
 
-                    <div class="hero-description">
-                        <p>
-                            No creemos en fórmulas mágicas para las marcas.
-                            Creemos en entender qué las hace diferentes y
-                            transformar esa esencia en ideas con personalidad.
-                        </p>
-
-                        <a class="button button-dark" href="#nuestra-esencia">
-                            Conoce NOVVA <span>↓</span>
+                    <div class="dato-contacto">
+                        <small>Correo electrónico</small>
+                        <!-- REEMPLAZA por el correo real de NOVVA -->
+                        <a href="mailto:TU_CORREO@EMPRESA.COM">
+                            TU_CORREO@EMPRESA.COM
                         </a>
                     </div>
-                </div>
 
-                <div class="hero-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85"
-                        alt="Fotografía editorial de moda contemporánea"
-                        fetchpriority="high">
-
-                    <div class="image-caption">
-                        <h2>Creatividad que<br>tiene algo que decir.</h2>
-                        <span>ESTRATEGIA · DISEÑO · IDENTIDAD</span>
+                    <div class="dato-contacto">
+                        <small>Redes sociales</small>
+                        <!-- REEMPLAZA por el perfil real -->
+                        <a href="https://www.instagram.com/"
+                           target="_blank" rel="noopener noreferrer">
+                            Instagram ↗
+                        </a>
                     </div>
-                </div>
+                </aside>
 
-            </div>
-        </section>
-
-
-        <!-- ESPECIALIDADES -->
-        <section class="intro-strip">
-            <div class="container strip-inner">
-                <span class="strip-label">NUESTRO UNIVERSO</span>
-                <span>✳ Identidad visual</span>
-                <span>↗ Marketing digital</span>
-                <span>◉ Contenido creativo</span>
-                <span>⌘ Diseño web</span>
-            </div>
-        </section>
-
-
-        <!-- QUIÉNES SOMOS -->
-        <section class="section" id="nuestra-esencia">
-            <div class="container about-grid">
-
-                <div class="about-visual">
-                    <div class="about-photo">
-                        <img
-                            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85"
-                            alt="Concepto visual de moda y estilo"
-                            loading="lazy">
-                    </div>
-
-                    <div class="photo-sticker">
-                        <strong>N.</strong>
-                        <span>IDEAS CON<br>IDENTIDAD</span>
-                    </div>
-                </div>
-
-                <div class="about-copy">
-                    <span class="eyebrow">Por qué existimos</span>
-
-                    <h2 class="section-title">
-                        Las marcas también tienen una
-                        <i>personalidad.</i>
-                    </h2>
-
-                    <p>
-                        NOVVA es una propuesta de estudio creativo enfocada
-                        en marketing digital. Nuestro trabajo parte de una
-                        pregunta sencilla: ¿qué queremos que las personas
-                        recuerden de esta marca?
+                <div class="formulario">
+                    <h2>Cuéntanos tu proyecto.</h2>
+                    <p class="descripcion-form">
+                        Completa los campos y nos pondremos en contacto contigo.
                     </p>
 
-                    <p>
-                        Desde ahí organizamos ideas, definimos mensajes y
-                        construimos una presencia digital consistente.
-                        Nos interesa especialmente el sector de la moda,
-                        donde la imagen importa, pero la historia detrás
-                        de ella también.
-                    </p>
+                    <!--
+                    CONFIGURACIÓN PENDIENTE:
+                    Cambia TU_CORREO@EMPRESA.COM por el correo real de NOVVA.
+                    Activa y verifica el servicio FormSubmit antes de publicar.
+                    -->
 
-                    <p>
-                        Nos gusta combinar diseño, comunicación y estrategia
-                        para desarrollar propuestas que tengan sentido
-                        y una identidad visual reconocible.
-                    </p>
+                    <form id="formularioContacto"
+                          action="https://formsubmit.co/TU_CORREO@EMPRESA.COM"
+                          method="POST">
 
-                    <a class="button button-light" href="servicios.html">
-                        Descubre qué hacemos ↗
-                    </a>
-                </div>
+                        <input type="hidden" name="_subject"
+                               value="Nueva solicitud de contacto | NOVVA Creative Studio">
 
-            </div>
-        </section>
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="true">
 
+                        <input type="hidden" name="_next"
+                               value="https://TU-USUARIO.github.io/NOVVA-Creative-Studio/gracias.html">
 
-        <!-- VALORES -->
-        <section class="section values">
-            <div class="container">
+                        <div class="campos">
+                            <div class="campo">
+                                <label for="nombre">Nombre completo *</label>
+                                <input type="text" id="nombre" name="nombre"
+                                       placeholder="Tu nombre" autocomplete="name"
+                                       maxlength="100" required>
+                            </div>
 
-                <div class="values-header">
-                    <div>
-                        <span class="eyebrow">Lo que nos guía</span>
-                        <h2 class="section-title">
-                            No se trata solo<br>de verse bien.
-                        </h2>
-                    </div>
+                            <div class="campo">
+                                <label for="correo">Correo electrónico *</label>
+                                <input type="email" id="correo" name="email"
+                                       placeholder="nombre@correo.com"
+                                       autocomplete="email" maxlength="150" required>
+                            </div>
 
-                    <p class="muted">
-                        Cada decisión creativa tiene una razón.
-                        Estos son los principios que orientan nuestra manera
-                        de pensar y construir proyectos.
-                    </p>
-                </div>
+                            <div class="campo">
+                                <label for="empresa">Empresa o marca</label>
+                                <input type="text" id="empresa" name="empresa"
+                                       placeholder="Nombre de tu negocio"
+                                       maxlength="150">
+                            </div>
 
-                <div class="values-grid">
+                            <div class="campo">
+                                <label for="servicio">Servicio de interés *</label>
+                                <select id="servicio" name="servicio" required>
+                                    <option value="" disabled selected>
+                                        Selecciona un servicio
+                                    </option>
+                                    <option>Marketing digital</option>
+                                    <option>Identidad de marca y branding</option>
+                                    <option>Diseño y desarrollo web</option>
+                                    <option>Contenido para redes sociales</option>
+                                    <option>Estrategia digital</option>
+                                    <option>Otro servicio</option>
+                                </select>
+                            </div>
 
-                    <article class="value-card">
-                        <span class="value-number">01 / CLARIDAD</span>
-                        <div class="value-icon">✳</div>
-                        <h3>Menos ruido. Más sentido.</h3>
-                        <p>
-                            Comunicar mejor no significa comunicar más.
-                            Buscamos mensajes claros que conecten con las
-                            personas adecuadas.
-                        </p>
-                    </article>
+                            <div class="campo completo">
+                                <label for="presupuesto">Presupuesto aproximado</label>
+                                <select id="presupuesto" name="presupuesto">
+                                    <option value="">Prefiero conversarlo</option>
+                                    <option>Menos de $500.000 COP</option>
+                                    <option>$500.000 – $1.500.000 COP</option>
+                                    <option>$1.500.000 – $3.000.000 COP</option>
+                                    <option>Más de $3.000.000 COP</option>
+                                </select>
+                            </div>
 
-                    <article class="value-card">
-                        <span class="value-number">02 / PERSONALIDAD</span>
-                        <div class="value-icon">◉</div>
-                        <h3>Ser diferentes de verdad.</h3>
-                        <p>
-                            Las tendencias cambian. Una identidad bien
-                            pensada ayuda a que una marca tenga voz propia.
-                        </p>
-                    </article>
+                            <div class="campo completo">
+                                <label for="mensaje">Háblanos de tu proyecto *</label>
+                                <textarea id="mensaje" name="mensaje"
+                                          placeholder="¿Qué quieres crear o mejorar? Cuéntanos los detalles..."
+                                          maxlength="3000" required></textarea>
+                            </div>
+                        </div>
 
-                    <article class="value-card">
-                        <span class="value-number">03 / INTENCIÓN</span>
-                        <div class="value-icon">↗</div>
-                        <h3>Cada detalle importa.</h3>
-                        <p>
-                            El diseño debe ayudar a contar una historia,
-                            orientar la comunicación y reforzar una idea.
-                        </p>
-                    </article>
+                        <label class="privacidad">
+                            <input type="checkbox" name="consentimiento"
+                                   value="Aceptado" required>
+                            <span>
+                                Autorizo el tratamiento de mis datos personales
+                                para gestionar esta solicitud de contacto.
+                                He leído la
+                                <a href="privacidad.html" target="_blank">
+                                    política de privacidad
+                                </a>.
+                            </span>
+                        </label>
 
-                </div>
-            </div>
-        </section>
+                        <button type="submit" class="boton-enviar">
+                            Enviar solicitud <span>↗</span>
+                        </button>
 
-
-        <!-- PROCESO -->
-        <section class="section">
-            <div class="container">
-
-                <div class="process-heading">
-                    <div>
-                        <span class="eyebrow">Nuestra manera de trabajar</span>
-                        <h2 class="section-title" style="margin-top:20px">
-                            De la idea<br>a la identidad.
-                        </h2>
-                    </div>
-
-                    <p class="muted">
-                        Un proceso creativo organizado permite que cada
-                        decisión tenga una intención y un objetivo.
-                    </p>
-                </div>
-
-                <div class="process-list">
-
-                    <article class="process-row">
-                        <span class="number">PASO 01</span>
-                        <h3>Escuchar</h3>
-                        <p>
-                            Conocemos la marca, sus objetivos, sus ideas
-                            y las personas a las que quiere llegar.
-                        </p>
-                        <span class="arrow">↘</span>
-                    </article>
-
-                    <article class="process-row">
-                        <span class="number">PASO 02</span>
-                        <h3>Investigar</h3>
-                        <p>
-                            Exploramos referencias, estilos y oportunidades
-                            para encontrar una dirección adecuada.
-                        </p>
-                        <span class="arrow">↘</span>
-                    </article>
-
-                    <article class="process-row">
-                        <span class="number">PASO 03</span>
-                        <h3>Crear</h3>
-                        <p>
-                            Transformamos las ideas en conceptos,
-                            diseños y propuestas de comunicación.
-                        </p>
-                        <span class="arrow">↘</span>
-                    </article>
-
-                    <article class="process-row">
-                        <span class="number">PASO 04</span>
-                        <h3>Conectar</h3>
-                        <p>
-                            Organizamos la propuesta para que la identidad
-                            pueda expresarse de forma coherente.
-                        </p>
-                        <span class="arrow">↗</span>
-                    </article>
-
+                        <p id="estadoFormulario" class="estado" role="status"></p>
+                    </form>
                 </div>
             </div>
         </section>
-
-
-        <!-- CONTACTO FINAL -->
-        <section class="last-word">
-            <div class="container">
-                <div class="last-box">
-
-                    <div>
-                        <span class="eyebrow">Sigamos la conversación</span>
-
-                        <h2>
-                            ¿Qué historia<br>quieres contar?
-                        </h2>
-
-                        <p>
-                            Toda buena idea empieza con una conversación.
-                            Cuéntanos qué tienes en mente y exploremos
-                            cómo convertirlo en una propuesta creativa.
-                        </p>
-                    </div>
-
-                    <a class="button button-dark" href="contacto.html">
-                        Hablemos de tu idea ↗
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
     </main>
 
+    <footer>
+        <div class="contenedor pie">
+            <strong>NOVVA CREATIVE STUDIO®</strong>
+            <span>Ideas con intención. Marcas con dirección.</span>
 
-    <!-- PIE DE PÁGINA -->
-    <footer class="footer">
-        <div class="container">
-
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a class="footer-logo" href="index.html">
-                        NOVVA<span>.</span>
-                    </a>
-
-                    <p>
-                        Un estudio creativo para marcas que quieren
-                        construir una identidad propia y comunicar
-                        con intención.
-                    </p>
-                </div>
-
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Explora</h4>
-                        <a href="index.html">Inicio</a>
-                        <a href="quienes-somos.html">El estudio</a>
-                        <a href="servicios.html">Qué hacemos</a>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Conecta</h4>
-                        <a href="referencias.html">Proyectos</a>
-                        <a href="contacto.html">Contacto</a>
-                    </div>
-                </div>
+            <div class="redes">
+                <a href="https://www.instagram.com/"
+                   target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+                <a href="index.html">Volver al inicio ↑</a>
             </div>
 
-            <div class="footer-bottom">
-                <span>© <span id="year"></span> NOVVA Studio.</span>
-                <span>Ideas con intención. Diseño con identidad.</span>
-            </div>
-
+            <span>© <span id="anio"></span> NOVVA Creative Studio.</span>
         </div>
     </footer>
 
-
     <script>
-        // MENÚ RESPONSIVE
-        const menuButton = document.getElementById("menuButton");
-        const navigation = document.getElementById("navigation");
-
-        menuButton.addEventListener("click", () => {
-            const isOpen = navigation.classList.toggle("open");
-
-            menuButton.setAttribute("aria-expanded", isOpen);
-            menuButton.innerHTML = isOpen
-                ? 'Cerrar <b>×</b>'
-                : 'Menú <b>+</b>';
-        });
-
-        navigation.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                navigation.classList.remove("open");
-                menuButton.setAttribute("aria-expanded", "false");
-                menuButton.innerHTML = 'Menú <b>+</b>';
-            });
-        });
-
-        // AÑO AUTOMÁTICO
-        document.getElementById("year").textContent =
+        document.getElementById("anio").textContent =
             new Date().getFullYear();
+
+        /*
+         * El formulario se envía directamente a FormSubmit.
+         * No mostramos un mensaje de éxito falso: el servicio gestionará
+         * el envío, la verificación inicial y la respuesta correspondiente.
+         */
+        document.getElementById("formularioContacto")
+            .addEventListener("submit", function (evento) {
+                const formulario = evento.currentTarget;
+                const destino = formulario.getAttribute("action");
+
+                if (destino.includes("TU_CORREO@EMPRESA.COM")) {
+                    evento.preventDefault();
+
+                    const estado =
+                        document.getElementById("estadoFormulario");
+
+                    estado.textContent =
+                        "Falta configurar el correo real de NOVVA en el formulario.";
+                    estado.className = "estado visible error";
+                }
+            });
     </script>
 
 </body>
 </html>
-```
