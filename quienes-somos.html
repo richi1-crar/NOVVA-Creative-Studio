@@ -1,0 +1,1331 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f7f4">
+
+    <title>El estudio | NOVVA Creative Studio</title>
+    <meta name="description" content="Conoce NOVVA Creative Studio. Estrategia, identidad visual, diseño web y marketing digital para marcas con personalidad.">
+
+    <link rel="icon" href="assets/logo-novva.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --fondo: #f7f7f4;
+            --negro: #171717;
+            --gris: #74746f;
+            --azul: #3457f2;
+            --azul-claro: #e8ecff;
+            --blanco: #ffffff;
+            --borde: #e3e3dc;
+            --ancho: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            background: var(--fondo);
+            color: var(--negro);
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(var(--ancho), calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--azul);
+            flex-shrink: 0;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1.05;
+            letter-spacing: -2.8px;
+            font-weight: 600;
+        }
+
+        .section-title i {
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .muted {
+            color: var(--gris);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .button {
+            min-height: 49px;
+            padding: 0 22px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid var(--negro);
+            transition: .25s ease;
+        }
+
+        .button-dark {
+            color: white;
+            background: var(--negro);
+        }
+
+        .button-dark:hover {
+            background: var(--azul);
+            border-color: var(--azul);
+            transform: translateY(-3px);
+        }
+
+        .button-light:hover {
+            background: var(--azul-claro);
+            border-color: var(--azul-claro);
+        }
+
+        /* NAVEGACIÓN */
+
+        .header {
+            height: 82px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247, 247, 244, .95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, .07);
+        }
+
+        .header-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .brand img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .brand-name {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: -1.5px;
+        }
+
+        .brand-name span,
+        .footer-logo span {
+            color: var(--azul);
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .navigation a {
+            font-size: 12px;
+            font-weight: 600;
+            color: #555;
+            transition: .2s;
+        }
+
+        .navigation a:hover,
+        .navigation a.current {
+            color: var(--azul);
+        }
+
+        .navigation .contact-link {
+            padding: 13px 19px;
+            background: var(--azul);
+            color: white;
+            border-radius: 40px;
+        }
+
+        .navigation .contact-link:hover {
+            background: #2444d2;
+        }
+
+        .menu-button {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--borde);
+            border-radius: 50px;
+            padding: 11px 15px;
+            cursor: pointer;
+        }
+
+        /* PORTADA */
+
+        .hero {
+            padding: 85px 0 65px;
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 35px;
+        }
+
+        .hero-title {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(55px, 8vw, 100px);
+            line-height: .98;
+            letter-spacing: -6px;
+            margin-top: 28px;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: var(--azul);
+        }
+
+        .hero-description {
+            max-width: 340px;
+            padding-bottom: 8px;
+        }
+
+        .hero-description p {
+            color: var(--gris);
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 22px;
+        }
+
+        .hero-image {
+            margin-top: 55px;
+            height: clamp(320px, 48vw, 540px);
+            border-radius: 22px;
+            overflow: hidden;
+            position: relative;
+            background: #deded9;
+        }
+
+        .hero-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform .8s;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.035);
+        }
+
+        .hero-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,.68), transparent 65%);
+            pointer-events: none;
+        }
+
+        .image-caption {
+            position: absolute;
+            z-index: 2;
+            bottom: 28px;
+            left: 30px;
+            right: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            color: white;
+        }
+
+        .image-caption h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(25px, 4vw, 44px);
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .image-caption span {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-align: right;
+        }
+
+        /* ESPECIALIDADES */
+
+        .intro-strip {
+            border-top: 1px solid var(--borde);
+            border-bottom: 1px solid var(--borde);
+            padding: 24px 0;
+        }
+
+        .strip-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .strip-inner span {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .strip-inner .strip-label {
+            color: var(--gris);
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+        }
+
+        /* HISTORIA */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+            min-width: 0;
+        }
+
+        .about-photo {
+            height: 490px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #e4e1d9;
+        }
+
+        .about-photo img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-sticker {
+            position: absolute;
+            right: -24px;
+            bottom: 28px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--azul);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transform: rotate(8deg);
+        }
+
+        .photo-sticker strong {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 28px;
+        }
+
+        .photo-sticker span {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .about-copy .section-title {
+            margin: 20px 0 25px;
+        }
+
+        .about-copy p {
+            color: var(--gris);
+            font-size: 14px;
+            line-height: 1.95;
+            margin-bottom: 17px;
+        }
+
+        .about-copy .button {
+            margin-top: 12px;
+        }
+
+        /* VALORES */
+
+        .values {
+            background: #171717;
+            color: white;
+        }
+
+        .values-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 35px;
+            margin-bottom: 48px;
+        }
+
+        .values-header .section-title {
+            margin-top: 20px;
+        }
+
+        .values-header .muted {
+            color: #aaa;
+            max-width: 320px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .value-card {
+            padding: 28px;
+            min-height: 255px;
+            border: 1px solid #3a3a3a;
+            border-radius: 18px;
+            background: #202020;
+            transition: .25s;
+        }
+
+        .value-card:hover {
+            background: #282828;
+            border-color: var(--azul);
+            transform: translateY(-5px);
+        }
+
+        .value-number {
+            color: #9daeff;
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .value-icon {
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-size: 25px;
+            color: #9daeff;
+        }
+
+        .value-card h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* PROCESO */
+
+        .process-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 30px;
+        }
+
+        .process-heading .muted {
+            max-width: 320px;
+        }
+
+        .process-list {
+            margin-top: 50px;
+            border-top: 1px solid var(--borde);
+        }
+
+        .process-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 1.1fr 35px;
+            align-items: center;
+            gap: 25px;
+            padding: 26px 0;
+            border-bottom: 1px solid var(--borde);
+            transition: padding .25s;
+        }
+
+        .process-row:hover {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .process-row .number {
+            color: var(--azul);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .process-row h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 23px;
+        }
+
+        .process-row p {
+            color: var(--gris);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .process-row .arrow {
+            font-size: 22px;
+            text-align: right;
+        }
+
+        /* CONTACTO FINAL */
+
+        .last-word {
+            padding: 25px 0 95px;
+        }
+
+        .last-box {
+            background: var(--azul-claro);
+            padding: clamp(35px, 7vw, 80px);
+            border-radius: 25px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 35px;
+        }
+
+        .last-box h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(42px, 6vw, 75px);
+            letter-spacing: -4px;
+            line-height: .99;
+            margin-top: 22px;
+        }
+
+        .last-box p {
+            color: #50536a;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 470px;
+            margin-top: 20px;
+        }
+
+        .last-box .button {
+            flex-shrink: 0;
+        }
+
+        /* PIE DE PÁGINA */
+
+        .footer {
+            background: #151515;
+            color: white;
+            padding: 50px 0 24px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 340px;
+        }
+
+        .footer-logo {
+            display: inline-block;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 14px;
+        }
+
+        .footer-brand p {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: clamp(25px, 5vw, 70px);
+        }
+
+        .footer-column h4 {
+            font-size: 12px;
+            margin-bottom: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #aaa;
+            font-size: 12px;
+            margin-bottom: 13px;
+            transition: color .2s;
+        }
+
+        .footer-column a:hover {
+            color: #9daeff;
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid #353535;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: #999;
+            font-size: 11px;
+        }
+
+        .footer-bottom span:last-child {
+            color: #9daeff;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 900px) {
+            .navigation {
+                gap: 15px;
+            }
+
+            .navigation a {
+                font-size: 11px;
+            }
+
+            .hero-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-description {
+                max-width: 520px;
+            }
+
+            .about-grid {
+                gap: 45px;
+            }
+
+            .about-photo {
+                height: 420px;
+            }
+
+            .values-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .last-box {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .process-row {
+                grid-template-columns: 75px 1fr 1.2fr 25px;
+                gap: 16px;
+            }
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 650px) {
+            .container {
+                width: calc(100% - 32px);
+            }
+
+            .header {
+                height: 72px;
+            }
+
+            .brand img {
+                width: 39px;
+                height: 39px;
+            }
+
+            .brand-name {
+                font-size: 25px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .navigation {
+                display: none;
+                position: absolute;
+                top: 71px;
+                left: 0;
+                right: 0;
+                padding: 10px 20px 22px;
+                background: var(--fondo);
+                border-bottom: 1px solid var(--borde);
+                align-items: stretch;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .navigation.open {
+                display: flex;
+            }
+
+            .navigation a {
+                padding: 15px 5px;
+                border-bottom: 1px solid var(--borde);
+                font-size: 13px;
+            }
+
+            .navigation .contact-link {
+                margin-top: 12px;
+                text-align: center;
+                border: 0;
+            }
+
+            .hero {
+                padding: 55px 0 40px;
+            }
+
+            .hero-title {
+                font-size: clamp(45px, 11.5vw, 65px);
+                letter-spacing: -3.5px;
+            }
+
+            .hero-image {
+                height: 370px;
+                margin-top: 35px;
+                border-radius: 18px;
+            }
+
+            .image-caption {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .image-caption span {
+                text-align: left;
+            }
+
+            .strip-inner {
+                justify-content: flex-start;
+                gap: 18px 25px;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .section-title {
+                font-size: 42px;
+                letter-spacing: -1.8px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 42px;
+            }
+
+            .about-photo {
+                height: 390px;
+            }
+
+            .photo-sticker {
+                width: 100px;
+                height: 100px;
+                right: -5px;
+                bottom: 18px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-card {
+                min-height: auto;
+            }
+
+            .value-icon {
+                margin-top: 25px;
+            }
+
+            .process-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .process-row {
+                grid-template-columns: 58px 1fr 25px;
+                gap: 12px;
+                padding: 22px 0;
+            }
+
+            .process-row h3 {
+                font-size: 19px;
+            }
+
+            .process-row p {
+                grid-column: 2 / 3;
+            }
+
+            .process-row .arrow {
+                grid-column: 3;
+                grid-row: 1;
+            }
+
+            .last-word {
+                padding-bottom: 65px;
+            }
+
+            .last-box {
+                border-radius: 20px;
+            }
+
+            .last-box h2 {
+                font-size: 47px;
+                letter-spacing: -2px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+
+            <a class="brand" href="index.html" aria-label="NOVVA inicio">
+                <img src="assets/logo-novva.jpeg" alt="Logo NOVVA"
+                     onerror="this.style.display='none'">
+                <span class="brand-name">NOVVA<span>.</span></span>
+            </a>
+
+            <button class="menu-button" id="menuButton"
+                    aria-label="Abrir navegación"
+                    aria-expanded="false"
+                    aria-controls="navigation">
+                Menú <b>+</b>
+            </button>
+
+            <nav class="navigation" id="navigation" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a class="current" href="quienes-somos.html" aria-current="page">El estudio</a>
+                <a href="servicios.html">Qué hacemos</a>
+                <a href="referencias.html">Proyectos</a>
+                <a class="contact-link" href="contacto.html">Hablemos ↗</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="container">
+
+                <div class="hero-top">
+                    <div>
+                        <span class="eyebrow">El estudio / 01</span>
+
+                        <h1 class="hero-title">
+                            Primero<br>
+                            escuchamos.<br>
+                            Después <span class="highlight">creamos.</span>
+                        </h1>
+                    </div>
+
+                    <div class="hero-description">
+                        <p>
+                            No creemos en fórmulas mágicas para las marcas.
+                            Creemos en entender qué las hace diferentes y
+                            transformar esa esencia en ideas con personalidad.
+                        </p>
+
+                        <a class="button button-dark" href="#nuestra-esencia">
+                            Conoce NOVVA <span>↓</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85"
+                        alt="Fotografía editorial de moda contemporánea"
+                        fetchpriority="high">
+
+                    <div class="image-caption">
+                        <h2>Creatividad que<br>tiene algo que decir.</h2>
+                        <span>ESTRATEGIA · DISEÑO · IDENTIDAD</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="intro-strip">
+            <div class="container strip-inner">
+                <span class="strip-label">NUESTRO UNIVERSO</span>
+                <span>✳ Identidad visual</span>
+                <span>↗ Marketing digital</span>
+                <span>◉ Contenido creativo</span>
+                <span>⌘ Diseño web</span>
+            </div>
+        </section>
+
+        <section class="section" id="nuestra-esencia">
+            <div class="container about-grid">
+
+                <div class="about-visual">
+                    <div class="about-photo">
+                        <img
+                            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85"
+                            alt="Concepto visual de moda y estilo"
+                            loading="lazy">
+                    </div>
+
+                    <div class="photo-sticker">
+                        <strong>N.</strong>
+                        <span>IDEAS CON<br>IDENTIDAD</span>
+                    </div>
+                </div>
+
+                <div class="about-copy">
+                    <span class="eyebrow">Por qué existimos</span>
+
+                    <h2 class="section-title">
+                        Las marcas también tienen una
+                        <i>personalidad.</i>
+                    </h2>
+
+                    <p>
+                        NOVVA es una propuesta de estudio creativo enfocada
+                        en marketing digital. Nuestro trabajo parte de una
+                        pregunta sencilla: ¿qué queremos que las personas
+                        recuerden de esta marca?
+                    </p>
+
+                    <p>
+                        Desde ahí organizamos ideas, definimos mensajes y
+                        construimos una presencia digital consistente.
+                        Nos interesa especialmente el sector de la moda,
+                        donde la imagen importa, pero la historia detrás
+                        de ella también.
+                    </p>
+
+                    <p>
+                        Combinamos diseño, comunicación y estrategia para
+                        desarrollar propuestas que tengan sentido y una
+                        identidad visual reconocible.
+                    </p>
+
+                    <a class="button button-light" href="servicios.html">
+                        Descubre qué hacemos ↗
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section values">
+            <div class="container">
+
+                <div class="values-header">
+                    <div>
+                        <span class="eyebrow">Lo que nos guía</span>
+                        <h2 class="section-title">
+                            No se trata solo<br>de verse bien.
+                        </h2>
+                    </div>
+
+                    <p class="muted">
+                        Cada decisión creativa tiene una razón.
+                        Estos son los principios que orientan nuestra manera
+                        de pensar y construir proyectos.
+                    </p>
+                </div>
+
+                <div class="values-grid">
+
+                    <article class="value-card">
+                        <span class="value-number">01 / CLARIDAD</span>
+                        <div class="value-icon">✳</div>
+                        <h3>Menos ruido. Más sentido.</h3>
+                        <p>
+                            Comunicar mejor no significa comunicar más.
+                            Buscamos mensajes claros que conecten con las
+                            personas adecuadas.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <span class="value-number">02 / PERSONALIDAD</span>
+                        <div class="value-icon">◉</div>
+                        <h3>Ser diferentes de verdad.</h3>
+                        <p>
+                            Las tendencias cambian. Una identidad bien
+                            pensada ayuda a que una marca tenga voz propia.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <span class="value-number">03 / INTENCIÓN</span>
+                        <div class="value-icon">↗</div>
+                        <h3>Cada detalle importa.</h3>
+                        <p>
+                            El diseño debe ayudar a contar una historia,
+                            orientar la comunicación y reforzar una idea.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+
+                <div class="process-heading">
+                    <div>
+                        <span class="eyebrow">Nuestra manera de trabajar</span>
+                        <h2 class="section-title" style="margin-top:20px">
+                            De la idea<br>a la identidad.
+                        </h2>
+                    </div>
+
+                    <p class="muted">
+                        Un proceso creativo organizado permite que cada
+                        decisión tenga una intención y un objetivo.
+                    </p>
+                </div>
+
+                <div class="process-list">
+
+                    <article class="process-row">
+                        <span class="number">PASO 01</span>
+                        <h3>Escuchar</h3>
+                        <p>
+                            Conocemos la marca, sus objetivos, sus ideas
+                            y las personas a las que quiere llegar.
+                        </p>
+                        <span class="arrow">↘</span>
+                    </article>
+
+                    <article class="process-row">
+                        <span class="number">PASO 02</span>
+                        <h3>Investigar</h3>
+                        <p>
+                            Exploramos referencias, estilos y oportunidades
+                            para encontrar una dirección adecuada.
+                        </p>
+                        <span class="arrow">↘</span>
+                    </article>
+
+                    <article class="process-row">
+                        <span class="number">PASO 03</span>
+                        <h3>Crear</h3>
+                        <p>
+                            Transformamos las ideas en conceptos,
+                            diseños y propuestas de comunicación.
+                        </p>
+                        <span class="arrow">↘</span>
+                    </article>
+
+                    <article class="process-row">
+                        <span class="number">PASO 04</span>
+                        <h3>Conectar</h3>
+                        <p>
+                            Organizamos la propuesta para que la identidad
+                            pueda expresarse de forma coherente.
+                        </p>
+                        <span class="arrow">↗</span>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="last-word">
+            <div class="container">
+                <div class="last-box">
+
+                    <div>
+                        <span class="eyebrow">Sigamos la conversación</span>
+
+                        <h2>
+                            ¿Qué historia<br>quieres contar?
+                        </h2>
+
+                        <p>
+                            Toda buena idea empieza con una conversación.
+                            Cuéntanos qué tienes en mente y exploremos
+                            cómo convertirlo en una propuesta creativa.
+                        </p>
+                    </div>
+
+                    <a class="button button-dark" href="contacto.html">
+                        Hablemos de tu idea ↗
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a class="footer-logo" href="index.html">NOVVA<span>.</span></a>
+
+                    <p>
+                        Un estudio creativo para marcas que quieren
+                        construir una identidad propia y comunicar
+                        con intención.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Explora</h4>
+                        <a href="index.html">Inicio</a>
+                        <a href="quienes-somos.html">El estudio</a>
+                        <a href="servicios.html">Qué hacemos</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Conecta</h4>
+                        <a href="referencias.html">Proyectos</a>
+                        <a href="contacto.html">Contacto</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© <span id="year"></span> NOVVA Studio.</span>
+                <span>Ideas con intención. Diseño con identidad.</span>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const navigation = document.getElementById("navigation");
+
+        menuButton.addEventListener("click", () => {
+            const isOpen = navigation.classList.toggle("open");
+
+            menuButton.setAttribute("aria-expanded", isOpen);
+            menuButton.setAttribute(
+                "aria-label",
+                isOpen ? "Cerrar navegación" : "Abrir navegación"
+            );
+
+            menuButton.innerHTML = isOpen
+                ? 'Cerrar <b>×</b>'
+                : 'Menú <b>+</b>';
+        });
+
+        navigation.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navigation.classList.remove("open");
+                menuButton.setAttribute("aria-expanded", "false");
+                menuButton.setAttribute("aria-label", "Abrir navegación");
+                menuButton.innerHTML = 'Menú <b>+</b>';
+            });
+        });
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+<!-- REDES SOCIALES FLOTANTES -->
+<div class="social-float">
+
+    <!-- WHATSAPP -->
+    <a
+        href="https://wa.me/573011704663"
+        class="social-button whatsapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+        title="Escríbenos por WhatsApp"
+    >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L0 24l6.5-1.7a12 12 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.4ZM12.1 21.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.9 1 1-3.8-.3-.4a9.7 9.7 0 0 1-1.5-5.1c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.4-4.4 9.9-9.5 9.9Zm5.4-7.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.1-.2-.3-.3-.6-.5Z"/>
+        </svg>
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a
+        href="https://www.instagram.com/novva_innovacion07?dlrf=MXhsZXd2NzNmZDJuNA=="
+        class="social-button instagram"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visitar Instagram"
+        title="Síguenos en Instagram"
+    >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.8" r="1" class="instagram-dot"/>
+        </svg>
+    </a>
+
+</div>
+
+<style>
+.social-float {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-button {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .15);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.social-button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .22);
+}
+
+.social-button svg {
+    width: 25px;
+    height: 25px;
+    fill: currentColor;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: #fff;
+}
+
+.instagram {
+    background: var(--azul, #3457f2);
+    color: #fff;
+}
+
+.instagram svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+.instagram .instagram-dot {
+    fill: currentColor;
+    stroke: none;
+}
+
+@media (max-width: 650px) {
+    .social-float {
+        right: 14px;
+        bottom: 16px;
+        gap: 10px;
+    }
+
+    .social-button {
+        width: 48px;
+        height: 48px;
+    }
+}
+</style>
+
+</body>
+</html>

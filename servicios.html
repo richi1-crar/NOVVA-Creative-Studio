@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Qué hacemos — NOVVA</title>
+    <meta name="description" content="Estrategia, identidad de marca, redes sociales y diseño web con NOVVA Estudio Creativo.">
+
+    <link rel="icon" href="assets/logo-novva.jpeg">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --fondo: #f5f4ef;
+            --negro: #171717;
+            --azul: #3457f2;
+            --gris: #77776f;
+            --linea: rgba(23, 23, 23, .16);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--fondo);
+            color: var(--negro);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVEGACIÓN */
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            padding: 16px 6%;
+            min-height: 82px;
+            background: rgba(245, 244, 239, .95);
+            border-bottom: 1px solid var(--linea);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .logo img {
+            width: 46px;
+            height: 46px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .navigation > a:not(.contact-link) {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .navigation > a:not(.contact-link)::after {
+            position: absolute;
+            content: "";
+            bottom: 3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--azul);
+            transition: width .25s;
+        }
+
+        .navigation > a:hover::after,
+        .navigation > a.current::after {
+            width: 100%;
+        }
+
+        .contact-link {
+            padding: 12px 17px;
+            background: var(--negro);
+            color: white;
+            transition: background .25s;
+        }
+
+        .contact-link:hover {
+            background: var(--azul);
+        }
+
+        .contact-link span {
+            margin-left: 10px;
+        }
+
+        .menu-button {
+            display: none;
+            padding: 10px 13px;
+            border: 1px solid var(--linea);
+            background: transparent;
+            color: var(--negro);
+            cursor: pointer;
+        }
+
+        /* ELEMENTOS COMPARTIDOS */
+
+        .section-label {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-label::before {
+            content: "";
+            width: 22px;
+            height: 2px;
+            background: var(--azul);
+        }
+
+        .blue {
+            color: var(--azul);
+        }
+
+        /* PORTADA */
+
+        .inner-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 75px 8% 65px;
+            border-bottom: 1px solid var(--linea);
+        }
+
+        .inner-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 42px 0 30px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(55px, 9vw, 112px);
+            font-weight: 600;
+            line-height: .96;
+            letter-spacing: -6px;
+        }
+
+        .inner-hero h1 em {
+            color: var(--azul);
+            font-style: normal;
+        }
+
+        .hero-description {
+            max-width: 470px;
+            margin: 0;
+            color: #62625c;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .inner-number {
+            position: absolute;
+            right: 8%;
+            bottom: 48px;
+            color: var(--azul);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* SERVICIOS */
+
+        .services-section {
+            padding: 80px 8% 95px;
+        }
+
+        .section-intro {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 38px;
+        }
+
+        .section-intro h2 {
+            margin: 18px 0 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(34px, 5vw, 55px);
+            line-height: 1.05;
+            letter-spacing: -2.5px;
+        }
+
+        .section-intro > p {
+            max-width: 330px;
+            margin: 0;
+            color: var(--gris);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .service-list {
+            border-top: 1px solid var(--linea);
+        }
+
+        .service-item {
+            display: grid;
+            grid-template-columns: 65px minmax(0, 1fr) 42px;
+            gap: 24px;
+            align-items: center;
+            padding: 31px 0;
+            border-bottom: 1px solid var(--linea);
+            transition: padding .25s;
+        }
+
+        .service-item:hover {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .service-number {
+            align-self: start;
+            padding-top: 4px;
+            color: var(--azul);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .service-content small {
+            color: var(--gris);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+        }
+
+        .service-content h3 {
+            margin: 10px 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(25px, 3.4vw, 39px);
+            font-weight: 600;
+            letter-spacing: -1.5px;
+        }
+
+        .service-content p {
+            max-width: 620px;
+            margin: 0;
+            color: #66665f;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .service-arrow {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--linea);
+            border-radius: 50%;
+            font-size: 19px;
+            transition: background .25s, color .25s, transform .25s;
+        }
+
+        .service-item:hover .service-arrow {
+            color: white;
+            background: var(--azul);
+            border-color: var(--azul);
+            transform: rotate(45deg);
+        }
+
+        /* BLOQUE DE MARCA */
+
+        .brand-statement {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 60px;
+            align-items: center;
+            padding: 75px 8%;
+            color: white;
+            background: var(--negro);
+        }
+
+        .brand-statement h2 {
+            margin: 25px 0 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(38px, 6vw, 68px);
+            line-height: .99;
+            letter-spacing: -3px;
+        }
+
+        .brand-statement h2 em {
+            color: #a7b4ff;
+            font-style: normal;
+        }
+
+        .brand-statement .section-label {
+            color: #d0d0ca;
+        }
+
+        .statement-copy p {
+            color: #c4c4bd;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .statement-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 18px;
+            padding-bottom: 9px;
+            border-bottom: 1px solid #777;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .statement-link span {
+            color: #a7b4ff;
+            font-size: 19px;
+        }
+
+        /* PROCESO */
+
+        .method-section {
+            padding: 85px 8%;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-top: 42px;
+            border-top: 1px solid var(--linea);
+        }
+
+        .method-card {
+            padding: 24px 18px 10px 0;
+            border-right: 1px solid var(--linea);
+        }
+
+        .method-card:not(:first-child) {
+            padding-left: 18px;
+        }
+
+        .method-card:last-child {
+            border-right: 0;
+        }
+
+        .method-top {
+            display: flex;
+            justify-content: space-between;
+            color: var(--azul);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .method-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--azul);
+        }
+
+        .method-card h3 {
+            margin: 34px 0 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 21px;
+            letter-spacing: -.5px;
+        }
+
+        .method-card p {
+            margin: 0;
+            color: var(--gris);
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        /* CONTACTO FINAL */
+
+        .last-word {
+            margin: 0 6% 65px;
+            padding: 58px 6%;
+            background: #e9ebff;
+        }
+
+        .last-word h2 {
+            margin: 24px 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: .98;
+            letter-spacing: -4px;
+        }
+
+        .last-word h2 em {
+            color: var(--azul);
+            font-style: normal;
+        }
+
+        .last-word-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .last-word-bottom p {
+            max-width: 380px;
+            color: #5f6071;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 22px;
+            padding: 15px 19px;
+            color: white;
+            background: var(--negro);
+            font-size: 12px;
+            font-weight: 700;
+            transition: background .25s, transform .25s;
+        }
+
+        .button-link:hover {
+            background: var(--azul);
+            transform: translateY(-2px);
+        }
+
+        /* PIE DE PÁGINA */
+
+        .footer {
+            padding: 38px 6% 23px;
+            border-top: 1px solid var(--linea);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .footer-logo span {
+            color: var(--azul);
+            font-size: 12px;
+            vertical-align: top;
+        }
+
+        .footer-description {
+            max-width: 270px;
+            margin: 0;
+            color: var(--gris);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .footer-nav a:hover {
+            color: var(--azul);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+            padding-top: 18px;
+            border-top: 1px solid var(--linea);
+            color: var(--gris);
+            font-size: 10px;
+        }
+
+        /* ANIMACIÓN DISCRETA */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* TABLET */
+
+        @media (max-width: 900px) {
+            .menu-button {
+                display: block;
+            }
+
+            .navigation {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                padding: 20px 6% 25px;
+                background: var(--fondo);
+                border-bottom: 1px solid var(--linea);
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+
+            .navigation.open {
+                display: flex;
+            }
+
+            .navigation > a:not(.contact-link) {
+                padding: 12px 0;
+            }
+
+            .contact-link {
+                text-align: center;
+                margin-top: 8px;
+            }
+
+            .inner-hero,
+            .services-section,
+            .method-section {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .brand-statement {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 65px 6%;
+            }
+
+            .method-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .method-card:nth-child(2) {
+                border-right: 0;
+            }
+
+            .method-card:nth-child(3),
+            .method-card:nth-child(4) {
+                border-top: 1px solid var(--linea);
+                padding-top: 25px;
+            }
+
+            .method-card:nth-child(3) {
+                padding-left: 0;
+            }
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 560px) {
+            .header {
+                padding: 13px 5%;
+            }
+
+            .logo {
+                font-size: 8px;
+                letter-spacing: 1.3px;
+                gap: 8px;
+            }
+
+            .logo img {
+                width: 39px;
+                height: 39px;
+            }
+
+            .inner-hero {
+                padding-top: 52px;
+                padding-bottom: 50px;
+            }
+
+            .inner-hero h1 {
+                margin: 33px 0 25px;
+                font-size: clamp(48px, 13vw, 72px);
+                letter-spacing: -3.5px;
+            }
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+            .inner-number {
+                position: static;
+                margin-top: 30px;
+            }
+
+            .services-section {
+                padding-top: 58px;
+                padding-bottom: 65px;
+            }
+
+            .section-intro {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .section-intro h2 {
+                letter-spacing: -1.5px;
+            }
+
+            .section-intro > p {
+                font-size: 12px;
+            }
+
+            .service-item {
+                grid-template-columns: 28px minmax(0, 1fr) 32px;
+                gap: 10px;
+                padding: 25px 0;
+            }
+
+            .service-content h3 {
+                font-size: 25px;
+                letter-spacing: -1px;
+            }
+
+            .service-content p {
+                font-size: 12px;
+            }
+
+            .service-arrow {
+                width: 31px;
+                height: 31px;
+                font-size: 15px;
+            }
+
+            .brand-statement {
+                padding-top: 55px;
+                padding-bottom: 55px;
+            }
+
+            .brand-statement h2 {
+                letter-spacing: -2px;
+            }
+
+            .method-section {
+                padding-top: 60px;
+                padding-bottom: 65px;
+            }
+
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .method-card,
+            .method-card:not(:first-child),
+            .method-card:nth-child(3) {
+                padding: 23px 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--linea);
+            }
+
+            .method-card h3 {
+                margin-top: 22px;
+            }
+
+            .last-word {
+                margin: 0 4% 45px;
+                padding: 42px 6%;
+            }
+
+            .last-word h2 {
+                letter-spacing: -2px;
+            }
+
+            .last-word-bottom {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-nav {
+                gap: 14px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <a class="logo" href="index.html" aria-label="NOVVA - Inicio">
+        <img src="assets/logo-novva.jpeg" alt="NOVVA">
+        <span>ESTUDIO CREATIVO</span>
+    </a>
+
+    <button class="menu-button" type="button"
+        aria-label="Abrir navegación" aria-expanded="false">
+        Menú <b>+</b>
+    </button>
+
+    <nav class="navigation" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">El estudio</a>
+        <a class="current" href="servicios.html">Qué hacemos</a>
+        <a href="referencias.html">Proyectos</a>
+        <a class="contact-link" href="contacto.html">Hablemos <span>↗</span></a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- PORTADA -->
+    <section class="inner-hero">
+        <p class="section-label">QUÉ HACEMOS / 02</p>
+
+        <h1>
+            Ideas bonitas.<br>
+            Decisiones<br>
+            <em>inteligentes.</em>
+        </h1>
+
+        <p class="hero-description">
+            Creamos estrategias, identidades y experiencias digitales
+            para marcas que quieren comunicar mejor, conectar con su
+            público y construir una presencia propia.
+        </p>
+
+        <div class="inner-number">N—02 / NOVVA</div>
+    </section>
+
+    <!-- LISTADO DE SERVICIOS -->
+    <section class="services-section">
+        <div class="section-intro reveal">
+            <div>
+                <p class="section-label">NUESTRO TRABAJO</p>
+                <h2>Lo que hacemos,<br>lo hacemos con intención.</h2>
+            </div>
+
+            <p>
+                Cuatro áreas creativas que pueden trabajar juntas
+                para darle dirección y personalidad a tu marca.
+            </p>
+        </div>
+
+        <div class="service-list">
+
+            <article class="service-item reveal">
+                <span class="service-number">01</span>
+
+                <div class="service-content">
+                    <small>ESTRATEGIA / PLANIFICACIÓN</small>
+                    <h3>Marketing digital</h3>
+                    <p>
+                        Definimos objetivos, identificamos audiencias y
+                        organizamos acciones digitales con una dirección clara.
+                        Cada idea debe responder a una necesidad real.
+                    </p>
+                </div>
+
+                <a class="service-arrow" href="contacto.html"
+                    aria-label="Consultar marketing digital">↗</a>
+            </article>
+
+            <article class="service-item reveal">
+                <span class="service-number">02</span>
+
+                <div class="service-content">
+                    <small>IDENTIDAD / DIRECCIÓN VISUAL</small>
+                    <h3>Concepto de marca</h3>
+                    <p>
+                        Construimos una identidad visual y verbal coherente
+                        con la personalidad del negocio, para que tenga una
+                        forma propia de presentarse y ser recordado.
+                    </p>
+                </div>
+
+                <a class="service-arrow" href="contacto.html"
+                    aria-label="Consultar identidad de marca">↗</a>
+            </article>
+
+            <article class="service-item reveal">
+                <span class="service-number">03</span>
+
+                <div class="service-content">
+                    <small>CONTENIDO / COMUNIDAD</small>
+                    <h3>Redes sociales</h3>
+                    <p>
+                        Desarrollamos conceptos de contenido, ideas para
+                        publicaciones y calendarios editoriales alineados
+                        con la voz de la marca y los intereses de su audiencia.
+                    </p>
+                </div>
+
+                <a class="service-arrow" href="contacto.html"
+                    aria-label="Consultar redes sociales">↗</a>
+            </article>
+
+            <article class="service-item reveal">
+                <span class="service-number">04</span>
+
+                <div class="service-content">
+                    <small>DISEÑO / EXPERIENCIA DIGITAL</small>
+                    <h3>Diseño web</h3>
+                    <p>
+                        Diseñamos páginas claras, atractivas y adaptables
+                        a distintos dispositivos, para presentar productos,
+                        explicar servicios y facilitar el contacto.
+                    </p>
+                </div>
+
+                <a class="service-arrow" href="contacto.html"
+                    aria-label="Consultar diseño web">↗</a>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- FILOSOFÍA -->
+    <section class="brand-statement">
+        <div class="reveal">
+            <p class="section-label">NUESTRA FILOSOFÍA</p>
+
+            <h2>
+                No se trata<br>
+                de hacer más.<br>
+                Se trata de<br>
+                hacerlo <em>mejor.</em>
+            </h2>
+        </div>
+
+        <div class="statement-copy reveal">
+            <p>
+                Una marca no necesita estar en todas partes para hacerse
+                notar. Necesita entender qué quiere comunicar, a quién
+                quiere llegar y cómo hacerlo de una manera auténtica.
+            </p>
+
+            <p>
+                En NOVVA conectamos creatividad y estrategia para desarrollar
+                propuestas que tengan sentido para cada proyecto.
+            </p>
+
+            <a class="statement-link" href="referencias.html">
+                Explorar proyectos <span>↗</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- MÉTODO DE TRABAJO -->
+    <section class="method-section">
+        <div class="section-intro reveal">
+            <div>
+                <p class="section-label">CÓMO LO HACEMOS</p>
+                <h2>Un proceso claro.<br>Ideas bien construidas.</h2>
+            </div>
+
+            <p>
+                Trabajamos paso a paso, escuchando las necesidades
+                del proyecto y revisando cada propuesta contigo.
+            </p>
+        </div>
+
+        <div class="method-grid">
+
+            <article class="method-card reveal">
+                <div class="method-top">
+                    <span>01 / ESCUCHAR</span>
+                    <span class="method-dot"></span>
+                </div>
+                <h3>Entendemos</h3>
+                <p>
+                    Conocemos el negocio, sus necesidades, sus objetivos
+                    y las personas a las que quiere llegar.
+                </p>
+            </article>
+
+            <article class="method-card reveal">
+                <div class="method-top">
+                    <span>02 / DEFINIR</span>
+                    <span class="method-dot"></span>
+                </div>
+                <h3>Encontramos el enfoque</h3>
+                <p>
+                    Organizamos las prioridades y definimos una dirección
+                    creativa coherente con el proyecto.
+                </p>
+            </article>
+
+            <article class="method-card reveal">
+                <div class="method-top">
+                    <span>03 / CREAR</span>
+                    <span class="method-dot"></span>
+                </div>
+                <h3>Lo hacemos realidad</h3>
+                <p>
+                    Convertimos las ideas en propuestas de diseño,
+                    contenido y comunicación digital.
+                </p>
+            </article>
+
+            <article class="method-card reveal">
+                <div class="method-top">
+                    <span>04 / REVISAR</span>
+                    <span class="method-dot"></span>
+                </div>
+                <h3>Mejoramos los detalles</h3>
+                <p>
+                    Revisamos la propuesta, conversamos los ajustes
+                    y afinamos el resultado final.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="last-word reveal">
+        <p class="section-label">TU PROYECTO EMPIEZA AQUÍ</p>
+
+        <h2>
+            Cada marca tiene<br>
+            algo <em>propio.</em><br>
+            Vamos a mostrarlo.
+        </h2>
+
+        <div class="last-word-bottom">
+            <p>
+                Cuéntanos qué estás construyendo y exploremos cómo
+                podemos convertir tus ideas en una propuesta creativa.
+            </p>
+
+            <a class="button-link" href="contacto.html">
+                Hablemos de tu proyecto <span>↗</span>
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-top">
+        <a class="footer-logo" href="index.html">NOVVA<span>®</span></a>
+
+        <p class="footer-description">
+            Un estudio creativo para marcas que quieren comunicar
+            con intención y construir una identidad propia.
+        </p>
+
+        <nav class="footer-nav" aria-label="Enlaces del pie de página">
+            <a href="index.html">Inicio</a>
+            <a href="quienes-somos.html">El estudio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="referencias.html">Proyectos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© NOVVA 2026 · Proyecto académico de marketing digital.</span>
+        <span>ESTRATEGIA · DISEÑO · CREATIVIDAD</span>
+    </div>
+</footer>
+
+<script>
+    // Menú para celular y tablet
+    const menuButton = document.querySelector('.menu-button');
+    const navigation = document.querySelector('.navigation');
+
+    if (menuButton && navigation) {
+        menuButton.addEventListener('click', () => {
+            const abierto = navigation.classList.toggle('open');
+
+            menuButton.setAttribute('aria-expanded', String(abierto));
+            menuButton.innerHTML = abierto
+                ? 'Cerrar <b>−</b>'
+                : 'Menú <b>+</b>';
+        });
+
+        navigation.querySelectorAll('a').forEach(enlace => {
+            enlace.addEventListener('click', () => {
+                navigation.classList.remove('open');
+                menuButton.setAttribute('aria-expanded', 'false');
+                menuButton.innerHTML = 'Menú <b>+</b>';
+            });
+        });
+    }
+
+    // Aparición suave de las secciones al desplazarse
+    const elementos = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add('visible');
+                    observador.unobserve(entrada.target);
+                }
+            });
+        }, {
+            threshold: 0.12
+        });
+
+        elementos.forEach(elemento => observador.observe(elemento));
+    } else {
+        elementos.forEach(elemento => elemento.classList.add('visible'));
+    }
+</script>
+
+</body>
+</html>
