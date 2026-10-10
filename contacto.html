@@ -631,6 +631,38 @@
                     estado.className = "estado visible error";
                 }
             });
+
+            
+    
+        const menuButton = document.getElementById("menuButton");
+        const navigation = document.getElementById("navigation");
+
+        menuButton.addEventListener("click", () => {
+            const isOpen = navigation.classList.toggle("open");
+
+            menuButton.setAttribute("aria-expanded", isOpen);
+            menuButton.setAttribute(
+                "aria-label",
+                isOpen ? "Cerrar navegación" : "Abrir navegación"
+            );
+
+            menuButton.innerHTML = isOpen
+                ? 'Cerrar <b>×</b>'
+                : 'Menú <b>+</b>';
+        });
+
+        navigation.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navigation.classList.remove("open");
+                menuButton.setAttribute("aria-expanded", "false");
+                menuButton.setAttribute("aria-label", "Abrir navegación");
+                menuButton.innerHTML = 'Menú <b>+</b>';
+            });
+        });
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    
     </script>
 
 </body>
