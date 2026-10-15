@@ -419,25 +419,516 @@
                 align-items: flex-start;
             }
         }
+        
+/* =========================================
+   NOVVA — MEJORA VISUAL Y ORGANIZACIÓN
+========================================= */
+
+:root {
+    --fondo: #f7f7f4;
+    --negro: #171717;
+    --azul: #3457f2;
+    --gris: #777873;
+    --borde: #deded8;
+    --blanco: #fff;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* ENCABEZADO */
+
+header.contenedor {
+    width: 100%;
+    padding-inline: max(5%, calc((100% - 1320px) / 2));
+    background: rgba(247, 247, 244, .96);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(14px);
+}
+
+.navegacion {
+    min-height: 82px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.logo img {
+    width: 145px;
+    max-height: 52px;
+}
+
+.menu {
+    gap: 27px;
+}
+
+.menu a {
+    font-weight: 600;
+    position: relative;
+}
+
+.menu a:not(.boton-menu)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: var(--azul);
+    transition: width .25s ease;
+}
+
+.menu a:not(.boton-menu):hover::after,
+.menu a:not(.boton-menu).activo::after {
+    width: 100%;
+}
+
+.menu .boton-menu {
+    padding: 11px 20px;
+    transition: background .2s, color .2s;
+}
+
+/* PRESENTACIÓN */
+
+.presentacion {
+    padding-top: clamp(65px, 9vw, 115px);
+    padding-bottom: clamp(45px, 7vw, 85px);
+    grid-template-columns: minmax(0, 1.45fr) minmax(230px, .55fr);
+    gap: clamp(30px, 6vw, 90px);
+    align-items: end;
+}
+
+.etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.etiqueta::before {
+    content: "";
+    width: 24px;
+    height: 2px;
+    background: var(--azul);
+}
+
+h1 {
+    font-size: clamp(44px, 6.5vw, 82px);
+    line-height: 1.04;
+    letter-spacing: -4px;
+    margin: 25px 0;
+    max-width: 850px;
+}
+
+h1 span {
+    display: inline-block;
+}
+
+.presentacion p {
+    font-size: 16px;
+    line-height: 1.9;
+    max-width: 470px;
+}
+
+.nota {
+    border-left: 1px solid var(--azul);
+    padding: 15px 0 15px 23px;
+    line-height: 1.85;
+}
+
+.nota strong {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* ZONA DE CONTACTO */
+
+.zona-contacto {
+    padding-top: 30px;
+    padding-bottom: 105px;
+}
+
+.formulario-grid {
+    grid-template-columns: minmax(230px, .72fr) minmax(0, 1.28fr);
+    gap: clamp(35px, 7vw, 95px);
+}
+
+.informacion {
+    padding-top: 15px;
+}
+
+.informacion h2 {
+    font-size: clamp(32px, 4vw, 44px);
+    letter-spacing: -2px;
+    margin-top: 20px;
+}
+
+.informacion > p {
+    line-height: 1.9;
+}
+
+.dato-contacto {
+    margin-top: 32px;
+    padding-top: 22px;
+}
+
+.dato-contacto a {
+    display: inline-block;
+    margin-top: 3px;
+    font-weight: 600;
+    transition: color .2s;
+}
+
+.dato-contacto a:hover {
+    color: var(--azul);
+}
+
+/* FORMULARIO */
+
+.formulario {
+    padding: clamp(24px, 4vw, 44px);
+    border-radius: 8px;
+    box-shadow: 0 12px 45px rgba(23, 23, 23, .035);
+}
+
+.formulario h2 {
+    letter-spacing: -1.3px;
+}
+
+.descripcion-form {
+    line-height: 1.8;
+}
+
+.campos {
+    gap: 24px 20px;
+}
+
+.campo label {
+    line-height: 1.5;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    border-radius: 5px;
+    min-height: 49px;
+    transition: border-color .2s, background .2s,
+                box-shadow .2s;
+}
+
+.campo textarea {
+    min-height: 145px;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    background: #fff;
+}
+
+.boton-enviar {
+    border-radius: 5px;
+    min-height: 54px;
+}
+
+.estado.visible {
+    display: block;
+}
+
+.estado.error {
+    background: #fff0f0;
+    color: #a51f1f;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background: #f1f1ed;
+    padding: 30px 0;
+}
+
+.pie {
+    flex-wrap: wrap;
+    row-gap: 18px;
+}
+
+.redes {
+    flex-wrap: wrap;
+}
+
+/* TABLET */
+
+@media (min-width: 761px) and (max-width: 1024px) {
+    .menu {
+        gap: 16px;
+    }
+
+    .menu a {
+        font-size: 12px;
+    }
+
+    .presentacion {
+        grid-template-columns: 1fr .65fr;
+    }
+
+    .formulario-grid {
+        gap: 35px;
+    }
+}
+
+/* CELULAR */
+
+@media (max-width: 760px) {
+    header.contenedor {
+        padding-inline: 5%;
+    }
+
+    .navegacion {
+        padding: 15px 0;
+        gap: 15px;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+
+    .menu {
+        justify-content: flex-start;
+        gap: 5px 18px;
+        padding-top: 8px;
+    }
+
+    .menu a {
+        font-size: 12px;
+        padding: 7px 0;
+    }
+
+    .menu .boton-menu {
+        padding: 8px 13px;
+    }
+
+    .presentacion {
+        padding-top: 55px;
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    h1 {
+        font-size: clamp(42px, 10.5vw, 64px);
+        letter-spacing: -2.5px;
+        line-height: 1.08;
+    }
+
+    .presentacion p {
+        font-size: 15px;
+    }
+
+    .nota {
+        max-width: 480px;
+    }
+
+    .zona-contacto {
+        padding-top: 15px;
+        padding-bottom: 65px;
+    }
+
+    .formulario-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .informacion h2 {
+        font-size: 36px;
+    }
+
+    .dato-contacto {
+        margin-top: 24px;
+    }
+
+    .formulario {
+        padding: 23px 18px;
+    }
+
+    .campos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .campo.completo {
+        grid-column: auto;
+    }
+
+    .privacidad {
+        line-height: 1.7;
+    }
+
+    .pie {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* CELULARES PEQUEÑOS */
+
+@media (max-width: 380px) {
+    .menu {
+        gap: 4px 12px;
+    }
+
+    .menu a {
+        font-size: 11px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .formulario {
+        padding: 20px 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* BOTÓN HAMBURGUESA */
+
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid var(--borde);
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 21px;
+    height: 2px;
+    background: var(--negro);
+    border-radius: 2px;
+    transition: transform .25s, opacity .2s;
+}
+
+/* ANIMACIÓN A X */
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* MENÚ MÓVIL */
+
+@media (max-width: 760px) {
+    .navegacion {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 1px);
+        left: -5.56%;
+        width: 111.12%;
+        padding: 18px 5% 22px;
+        background: var(--fondo);
+        border-bottom: 1px solid var(--borde);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, .06);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        z-index: 1001;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+
+    .menu a {
+        display: block;
+        width: 100%;
+        padding: 13px 0;
+        font-size: 14px;
+        border-bottom: 1px solid var(--borde);
+    }
+
+    .menu a::after {
+        display: none;
+    }
+
+    .menu .boton-menu {
+        width: fit-content;
+        margin-top: 14px;
+        padding: 10px 18px;
+        border: 1px solid var(--negro);
+    }
+}
+
     </style>
 </head>
 
 <body>
 
     <header class="contenedor">
-        <nav class="navegacion">
-            <a href="index.html" class="logo" aria-label="NOVVA inicio">
-                <img src="assets/logo-novva.jpeg" alt="NOVVA Creative Studio">
-            </a>
+      
+<nav class="navegacion">
+    <a href="index.html" class="logo" aria-label="NOVVA inicio">
+        <img src="assets/logo-novva.jpeg" alt="NOVVA Creative Studio">
+    </a>
 
-            <div class="menu">
-                <a href="index.html">Inicio</a>
-                <a href="quienes-somos.html">El estudio</a>
-                <a href="servicios.html">Qué hacemos</a>
-                <a href="referencias.html">Proyectos</a>
-                <a href="contacto.html" class="boton-menu activo">Hablemos ↗</a>
-            </div>
-        </nav>
+    <button
+        class="menu-toggle"
+        id="menuButton"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="menu" id="navigation">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">El estudio</a>
+        <a href="servicios.html">Qué hacemos</a>
+        <a href="referencias.html">Proyectos</a>
+        <a href="contacto.html" class="boton-menu activo">Hablemos ↗</a>
+    </div>
+</nav>
+
     </header>
 
     <main>
@@ -607,64 +1098,71 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById("anio").textContent =
-            new Date().getFullYear();
+   
+<script>
+    // Año automático del pie de página.
+    const anio = document.getElementById("anio");
 
-        /*
-         * El formulario se envía directamente a FormSubmit.
-         * No mostramos un mensaje de éxito falso: el servicio gestionará
-         * el envío, la verificación inicial y la respuesta correspondiente.
-         */
-        document.getElementById("formularioContacto")
-            .addEventListener("submit", function (evento) {
-                const formulario = evento.currentTarget;
-                const destino = formulario.getAttribute("action");
+    if (anio) {
+        anio.textContent = new Date().getFullYear();
+    }
 
-                if (destino.includes("TU_CORREO@EMPRESA.COM")) {
-                    evento.preventDefault();
+    // El navegador valida los campos obligatorios.
+    // FormSubmit recibe el formulario y gestiona su envío.
+    const formulario = document.getElementById("formularioContacto");
+    const estado = document.getElementById("estadoFormulario");
 
-                    const estado =
-                        document.getElementById("estadoFormulario");
-
-                    estado.textContent =
-                        "Falta configurar el correo real de NOVVA en el formulario.";
-                    estado.className = "estado visible error";
-                }
-            });
-
-            
-    
-        const menuButton = document.getElementById("menuButton");
-        const navigation = document.getElementById("navigation");
-
-        menuButton.addEventListener("click", () => {
-            const isOpen = navigation.classList.toggle("open");
-
-            menuButton.setAttribute("aria-expanded", isOpen);
-            menuButton.setAttribute(
-                "aria-label",
-                isOpen ? "Cerrar navegación" : "Abrir navegación"
+    if (formulario) {
+        formulario.addEventListener("submit", function () {
+            const boton = formulario.querySelector(
+                'button[type="submit"]'
             );
 
-            menuButton.innerHTML = isOpen
-                ? 'Cerrar <b>×</b>'
-                : 'Menú <b>+</b>';
-        });
+            if (boton) {
+                boton.disabled = true;
+                boton.innerHTML = "Enviando solicitud…";
+            }
 
-        navigation.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                navigation.classList.remove("open");
-                menuButton.setAttribute("aria-expanded", "false");
-                menuButton.setAttribute("aria-label", "Abrir navegación");
-                menuButton.innerHTML = 'Menú <b>+</b>';
-            });
+            if (estado) {
+                estado.className = "estado";
+                estado.textContent = "";
+            }
         });
-
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
+    }
     
-    </script>
+const menuButton = document.getElementById("menuButton");
+const navigation = document.getElementById("navigation");
+
+if (menuButton && navigation) {
+    menuButton.addEventListener("click", () => {
+        const abierto = navigation.classList.toggle("open");
+
+        menuButton.setAttribute("aria-expanded", String(abierto));
+        menuButton.setAttribute(
+            "aria-label",
+            abierto ? "Cerrar menú" : "Abrir menú"
+        );
+    });
+
+    navigation.querySelectorAll("a").forEach(enlace => {
+        enlace.addEventListener("click", () => {
+            navigation.classList.remove("open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Abrir menú");
+        });
+    });
+
+    document.addEventListener("keydown", evento => {
+        if (evento.key === "Escape") {
+            navigation.classList.remove("open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Abrir menú");
+        }
+    });
+}
+
+</script>
+
 
 </body>
 </html>
