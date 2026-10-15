@@ -875,6 +875,307 @@
                 transition-duration: .01ms !important;
             }
         }
+
+        /* ===== NOVVA: CABECERA EDITORIAL COMPACTA ===== */
+
+.portfolio-hero {
+    padding: 38px 7% 22px;
+    background: var(--paper);
+}
+
+.portfolio-hero::after {
+    display: none;
+}
+
+.hero-topline {
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.hero-year {
+    margin-left: auto;
+    color: #858995;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+}
+
+.hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+    gap: 35px;
+    align-items: center;
+}
+
+.hero-main {
+    min-width: 0;
+}
+
+.hero-pretitle {
+    margin: 0 0 15px;
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.portfolio-hero h1 {
+    max-width: 780px;
+    margin: 0;
+    font-size: clamp(43px, 5.3vw, 75px);
+    font-weight: 600;
+    letter-spacing: -.075em;
+    line-height: 1.02;
+}
+
+.hero-extra {
+    max-width: 470px;
+    margin-top: 24px;
+    padding-top: 17px;
+    border-top: 1px solid var(--line);
+}
+
+.hero-extra-title {
+    margin: 0 0 10px;
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 2.1vw, 27px);
+    font-weight: 600;
+    letter-spacing: -.055em;
+    line-height: 1.3;
+}
+
+.hero-extra-title span {
+    color: var(--blue);
+}
+
+.hero-description {
+    max-width: 420px;
+    margin: 0;
+    color: #666b76;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.hero-art {
+    position: relative;
+    display: flex;
+    min-height: 285px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #e9ecf6;
+}
+
+.art-index {
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    z-index: 2;
+    color: #555e7a;
+    font-size: 8px;
+    letter-spacing: 1.3px;
+}
+
+.art-orbit {
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    border: 1px solid rgba(49, 86, 211, .3);
+    border-radius: 50%;
+}
+
+.orbit-two {
+    width: 135px;
+    height: 135px;
+    border-style: dashed;
+    animation: novvaOrbit 24s linear infinite;
+}
+
+.art-symbol {
+    position: relative;
+    z-index: 1;
+    color: var(--ink);
+    font-family: var(--font-heading);
+    font-size: 130px;
+    font-weight: 800;
+    letter-spacing: -15px;
+    line-height: 1;
+}
+
+.art-symbol span {
+    color: var(--blue);
+}
+
+.art-cross {
+    position: absolute;
+    color: var(--blue);
+    font-size: 24px;
+}
+
+.cross-one {
+    top: 65px;
+    right: 45px;
+}
+
+.cross-two {
+    bottom: 54px;
+    left: 40px;
+}
+
+.art-tag {
+    position: absolute;
+    padding: 7px 10px;
+    background: var(--blue);
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.tag-one {
+    right: 15px;
+    bottom: 65px;
+}
+
+.tag-two {
+    top: 65px;
+    left: 17px;
+    background: var(--ink);
+}
+
+.art-coordinate {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    color: #555e7a;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.hero-side-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 12px;
+    color: #777c87;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .8px;
+}
+
+.hero-bottomline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--line);
+    color: #737782;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+}
+
+@keyframes novvaOrbit {
+    to { transform: rotate(360deg); }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .portfolio-hero {
+        padding: 32px 5% 20px;
+    }
+
+    .hero-layout {
+        grid-template-columns: minmax(0, 1.2fr) minmax(220px, .8fr);
+        gap: 22px;
+    }
+
+    .portfolio-hero h1 {
+        font-size: clamp(38px, 5.5vw, 55px);
+    }
+
+    .hero-art {
+        min-height: 250px;
+    }
+
+    .art-symbol {
+        font-size: 105px;
+    }
+
+    .art-orbit {
+        width: 155px;
+        height: 155px;
+    }
+
+    .orbit-two {
+        width: 115px;
+        height: 115px;
+    }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+    .portfolio-hero {
+        padding: 30px 22px 20px;
+    }
+
+    .hero-topline {
+        margin-bottom: 23px;
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+
+    .hero-year {
+        font-size: 7px;
+        letter-spacing: .5px;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .portfolio-hero h1 {
+        font-size: clamp(37px, 9.2vw, 54px);
+        letter-spacing: -.07em;
+        line-height: 1.04;
+    }
+
+    .hero-extra {
+        margin-top: 19px;
+        padding-top: 15px;
+    }
+
+    .hero-extra-title {
+        font-size: 22px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+    }
+
+    .hero-art {
+        min-height: 230px;
+    }
+
+    .hero-bottomline {
+        justify-content: flex-start;
+        column-gap: 18px;
+        margin-top: 24px;
+        font-size: 7px;
+    }
+
+    .hero-side-caption {
+        font-size: 7px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .orbit-two {
+        animation: none;
+    }
+}
     </style>
 </head>
 
@@ -903,27 +1204,60 @@
 </header>
 
 <main>
-    <section class="portfolio-hero reveal">
+     <section class="portfolio-hero reveal">
         <div class="hero-topline section-label">
             <span class="hero-dot" aria-hidden="true"></span>
-            NOVVA / PORTAFOLIO CREATIVO
+            NOVVA® / CREATIVE STUDIO
+            <span class="hero-year">INDEPENDIENTE · 2026</span>
         </div>
 
-        <h1>
-            Ideas con<br>
-            intención<span>.</span><br>
-            Marcas con<br>
-            <span>identidad.</span>
-        </h1>
+        <div class="hero-layout">
+            <div class="hero-main">
+                <p class="hero-pretitle">ESTRATEGIA. DISEÑO. IDENTIDAD.</p>
 
-        <div class="hero-bottom">
-            <p class="hero-description">
-                Cada proyecto comienza con una pregunta, una idea y una
-                oportunidad para comunicar mejor. Aquí reunimos referencias
-                que muestran nuestra forma de pensar el diseño y lo digital.
-            </p>
+                <h1>
+                    Ideas con intención<span>.</span><br>
+                    Marcas con <span>identidad.</span>
+                </h1>
 
-            <span class="hero-index">SELECCIÓN CREATIVA &nbsp; / &nbsp; 2026</span>
+                <div class="hero-extra">
+                    <p class="hero-extra-title">
+                        Pensamos diferente.
+                        <span>Diseñamos con intención.</span>
+                    </p>
+
+                    <p class="hero-description">
+                        Ideas que se convierten en conceptos, conceptos que
+                        construyen marcas y marcas que tienen algo propio que decir.
+                    </p>
+                </div>
+            </div>
+
+            <aside class="hero-side" aria-label="Filosofía creativa de NOVVA">
+                <div class="hero-art">
+                    <span class="art-index">N.º 001 — VISUAL THINKING</span>
+                    <span class="art-orbit orbit-one"></span>
+                    <span class="art-orbit orbit-two"></span>
+                    <span class="art-symbol">N<span>.</span></span>
+                    <span class="art-cross cross-one">+</span>
+                    <span class="art-cross cross-two">✳</span>
+                    <span class="art-tag tag-one">THINK</span>
+                    <span class="art-tag tag-two">CREATE</span>
+                    <span class="art-coordinate">IDEAS → IDENTIDAD</span>
+                </div>
+
+                <div class="hero-side-caption">
+                    <span>01 / NOVVA</span>
+                    <span>IDEAS EN MOVIMIENTO ↗</span>
+                </div>
+            </aside>
+        </div>
+
+        <div class="hero-bottomline">
+            <span>ESTRATEGIA CREATIVA</span>
+            <span>DISEÑO DIGITAL</span>
+            <span>IDENTIDAD DE MARCA</span>
+            <span>COLOMBIA ↗</span>
         </div>
     </section>
 
