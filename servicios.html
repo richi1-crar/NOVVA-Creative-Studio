@@ -740,6 +740,284 @@
                 flex-direction: column;
             }
         }
+
+        
+/* ========================================
+   NOVVA — NAVEGACIÓN ORDENADA
+======================================== */
+
+.header {
+    padding-inline: clamp(20px, 5.5vw, 90px);
+    min-height: 78px;
+}
+
+.logo img {
+    flex-shrink: 0;
+}
+
+.navigation {
+    gap: clamp(15px, 2.2vw, 28px);
+}
+
+.menu-button {
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 100px;
+    min-height: 42px;
+    border-radius: 4px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background .2s, color .2s;
+}
+
+.menu-button:hover {
+    color: white;
+    background: var(--negro);
+}
+
+/* TABLET Y CELULAR */
+
+@media (max-width: 900px) {
+    .header {
+        position: sticky;
+        top: 0;
+    }
+
+    .menu-button {
+        display: inline-flex;
+        position: relative;
+        z-index: 1002;
+    }
+
+    .navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 14px 6% 24px;
+        background: var(--fondo);
+        border-bottom: 1px solid var(--linea);
+        box-shadow: 0 15px 25px rgba(23, 23, 23, .07);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .navigation.open {
+        display: flex;
+    }
+
+    .navigation > a:not(.contact-link) {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--linea);
+    }
+
+    .navigation > a:not(.contact-link)::after {
+        display: none;
+    }
+
+    .navigation .contact-link {
+        margin-top: 14px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .header {
+        padding-inline: 16px;
+        min-height: 70px;
+    }
+
+    .logo {
+        gap: 7px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .logo img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .menu-button {
+        min-width: 86px;
+        padding: 9px;
+    }
+}
+
+/* PORTADA MÁS EQUILIBRADA */
+
+.inner-hero {
+    padding: clamp(55px, 7vw, 90px) clamp(20px, 8%, 120px)
+             clamp(48px, 6vw, 75px);
+}
+
+.inner-hero h1 {
+    max-width: 1000px;
+    margin: clamp(28px, 4vw, 44px) 0 26px;
+    font-size: clamp(48px, 8.1vw, 105px);
+    line-height: .99;
+    letter-spacing: -.065em;
+    overflow-wrap: break-word;
+}
+
+.hero-description {
+    max-width: 520px;
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.inner-number {
+    right: clamp(20px, 8%, 120px);
+    bottom: 35px;
+}
+
+@media (max-width: 560px) {
+    .inner-hero {
+        padding: 48px 5% 42px;
+    }
+
+    .inner-hero h1 {
+        margin: 30px 0 22px;
+        font-size: clamp(43px, 12vw, 64px);
+        letter-spacing: -.055em;
+        line-height: 1.03;
+    }
+
+    .inner-number {
+        margin-top: 24px;
+    }
+}
+
+/* SERVICIOS — MEJOR JERARQUÍA VISUAL */
+
+.service-list {
+    border-top: 1px solid var(--linea);
+}
+
+.service-item {
+    grid-template-columns: 48px minmax(0, 1fr) 42px;
+    gap: clamp(14px, 3vw, 30px);
+    padding: 34px 8px;
+}
+
+.service-number {
+    padding-top: 7px;
+    font-variant-numeric: tabular-nums;
+}
+
+.service-content small {
+    display: block;
+    line-height: 1.6;
+}
+
+.service-content h3 {
+    margin: 9px 0 12px;
+    line-height: 1.15;
+}
+
+.service-content p {
+    max-width: 590px;
+    line-height: 1.85;
+}
+
+.service-arrow {
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+@media (hover: hover) {
+    .service-item:hover {
+        background: rgba(52, 87, 242, .025);
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 560px) {
+    .service-item {
+        grid-template-columns: 28px minmax(0, 1fr) 32px;
+        gap: 10px;
+        padding: 25px 0;
+    }
+
+    .service-content h3 {
+        font-size: clamp(22px, 6vw, 27px);
+    }
+}
+
+/* PROCESO DE TRABAJO */
+
+.method-section {
+    max-width: 1600px;
+    margin-inline: auto;
+}
+
+.method-grid {
+    margin-top: 35px;
+}
+
+.method-card {
+    min-width: 0;
+    padding-top: 25px;
+}
+
+.method-card h3 {
+    line-height: 1.25;
+}
+
+.method-card p {
+    max-width: 250px;
+}
+
+/* CIERRE */
+
+.last-word {
+    border: 1px solid rgba(52, 87, 242, .12);
+    border-radius: 4px;
+}
+
+.last-word h2 {
+    max-width: 900px;
+    line-height: 1.02;
+}
+
+.last-word-bottom p {
+    margin: 0;
+}
+
+.button-link {
+    flex-shrink: 0;
+    border-radius: 3px;
+}
+
+@media (max-width: 560px) {
+    .method-grid {
+        margin-top: 25px;
+    }
+
+    .method-card p {
+        max-width: 100%;
+    }
+
+    .last-word {
+        margin-inline: 4%;
+        padding: 35px 6%;
+    }
+
+    .last-word h2 {
+        font-size: clamp(38px, 10vw, 52px);
+    }
+
+    .button-link {
+        max-width: 100%;
+        gap: 12px;
+    }
+}
+
     </style>
 </head>
 
@@ -1063,6 +1341,6 @@
         elementos.forEach(elemento => elemento.classList.add('visible'));
     }
 </script>
-
+<script src="mascota.js"></script>
 </body>
 </html>
